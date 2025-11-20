@@ -1,15 +1,15 @@
-Progetto d'Esame: Classificazione Segnali Stradali (GTSRB)
+**Progetto d'Esame:** Classificazione Segnali Stradali (GTSRB)
 
-Studente: Manuel Ragazzini e Filippo forcellini
+**Studente:** Manuel Ragazzini e Filippo forcellini
 
-Matricola: Manuel Ragazzini-->0001121434
+**Matricola:** Manuel Ragazzini-->0001121434
            Filippo forcellini-->0001121636
 
-Corso: Tecnologie dei sistemi informatici
+**Corso:** Tecnologie dei sistemi informatici
 
-Anno Accademico: 2024/2025
+**Anno Accademico:** 2024/2025
 
-📌 Descrizione del Progetto
+📌**Descrizione del Progetto**
 
 Questo progetto implementa una pipeline di Deep Learning per la classificazione di segnali stradali utilizzando il dataset GTSRB (German Traffic Sign Recognition Benchmark).
 
@@ -29,7 +29,7 @@ Valutazione tramite Matrice di Confusione e Report di Classificazione.
 
 Interfaccia demo per testare il modello su singole immagini.
 
-📂 Struttura dei File
+📂 **Struttura dei File**
 
 Progetto_Esame/
 │
@@ -52,7 +52,7 @@ Progetto_Esame/
 └── Presentazione.html      # Slide interattive per la discussione
 
 
-🚀 Installazione e Setup
+🚀 **Installazione e Setup**
 
 Prerequisiti: Assicurarsi di avere Python installato (versione 3.8 o superiore consigliata).
 
@@ -63,7 +63,7 @@ pip install -r requirements.txt
 
 Nota: Il progetto utilizza torch, torchvision, matplotlib, pandas, scikit-learn e tqdm.
 
-🖥️ Istruzioni per l'Esecuzione
+🖥️ **Istruzioni per l'Esecuzione**
 
 Per avviare il progetto, utilizzare l'orchestratore principale che fornisce un menu interattivo:
 
@@ -82,7 +82,7 @@ Valutazione: Carica il modello addestrato e genera la Matrice di Confusione sul 
 
 Demo: Preleva un'immagine casuale dal test set, esegue la predizione e mostra il confronto visivo tra etichetta reale e predetta.
 
-📊 Risultati Attesi
+📊 **Risultati Attesi**
 
 Architettura
 
@@ -104,11 +104,11 @@ Convergenza rapida, elevata robustezza grazie al Transfer Learning.
 
 I grafici di training (Loss/Accuracy) vengono salvati automaticamente come file .png nella cartella principale al termine dell'addestramento.
 
-⚠️ Requisiti di Sicurezza
+⚠️ **Requisiti di Sicurezza**
 
 Si certifica di aver completato i moduli 1 e 2 sulla sicurezza nei luoghi di studio in modalità e-learning, come richiesto dal regolamento d'esame.
 
-📚 Riferimenti
+📚 **Riferimenti**
 
 Dataset: GTSRB - German Traffic Sign Recognition Benchmark
 
