@@ -1,10 +1,11 @@
 Progetto d'Esame: Classificazione Segnali Stradali (GTSRB)
 
-Studente: [Tuo Nome Cognome]
+Studente: Manuel Ragazzini e Filippo forcellini
 
-Matricola: [Tua Matricola]
+Matricola: Manuel Ragazzini-->0001121434
+           Filippo forcellini-->0001121636
 
-Corso: [Nome del Corso]
+Corso: Tecnologie dei sistemi informatici
 
 Anno Accademico: 2024/2025
 
