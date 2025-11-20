@@ -1,0 +1,8 @@
+torch
+torchvision
+matplotlib
+pandas
+scikit-learn
+numpy
+tqdm
+jupyter  # Opzionale, se vuoi usare i notebook per i grafici
