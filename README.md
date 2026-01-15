@@ -165,7 +165,7 @@ Linear(512→43) → Output
 ## Autori
 
 - **Filippo Forcellini** - filippo.forcellini@studio.unibo.it
-- **Manuel Ragazzini** - manuel-ragazzini3@studio.unibo.it
+- **Manuel Ragazzini** - manuel.ragazzini3@studio.unibo.it
 
 ## Licenza
 
