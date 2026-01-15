@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+
+# Dataset (troppo grande per GitHub)
+data/
+
+# Modelli salvati (troppo grandi)
+models/*.pth
+
+# Ambienti virtuali
+venv/
+env/
+.env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Log TensorBoard (opzionale, decommentare se troppo grandi)
+# runs/
+
+# Esperimenti (opzionale, decommentare se troppo grandi)
+# experiments/

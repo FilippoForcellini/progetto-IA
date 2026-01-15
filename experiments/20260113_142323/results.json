@@ -1,0 +1,56 @@
+[
+  {
+    "name": "exp1_epochs2",
+    "description": "Custom CNN - 2 epoche (bs=64, lr=0.001)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp1_epochs2 is not a directory"
+  },
+  {
+    "name": "exp2_epochs5",
+    "description": "Custom CNN - 5 epoche (bs=64, lr=0.001)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp2_epochs5 is not a directory"
+  },
+  {
+    "name": "exp3_epochs10",
+    "description": "Custom CNN - 10 epoche (bs=64, lr=0.001)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp3_epochs10 is not a directory"
+  },
+  {
+    "name": "exp4_bs8",
+    "description": "Custom CNN - batch_size=8 (lr=0.001, ep=5)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp4_bs8 is not a directory"
+  },
+  {
+    "name": "exp5_bs16",
+    "description": "Custom CNN - batch_size=16 (lr=0.001, ep=5)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp5_bs16 is not a directory"
+  },
+  {
+    "name": "exp6_bs32",
+    "description": "Custom CNN - batch_size=32 (lr=0.001, ep=5)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp6_bs32 is not a directory"
+  },
+  {
+    "name": "exp7_lr0001",
+    "description": "Custom CNN - lr=0.0001 (bs=64, ep=5)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp7_lr0001 is not a directory"
+  },
+  {
+    "name": "exp8_lr005",
+    "description": "Custom CNN - lr=0.005 (bs=64, ep=5)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp8_lr005 is not a directory"
+  },
+  {
+    "name": "exp9_lr01",
+    "description": "Custom CNN - lr=0.01 (bs=64, ep=5)",
+    "status": "failed",
+    "error": "./experiments\\20260113_142323\\runs\\exp9_lr01 is not a directory"
+  }
+]

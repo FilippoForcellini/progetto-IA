@@ -1,0 +1,125 @@
+{
+    "project": {
+        "name": "GTSRB Traffic Sign Classification",
+        "num_classes": 43
+    },
+    "paths": {
+        "data_root": "./data",
+        "models_dir": "./models",
+        "results_dir": "./results",
+        "logs_dir": "./runs"
+    },
+    "data": {
+        "image_size": 32,
+        "normalize_mean": [
+            0.5,
+            0.5,
+            0.5
+        ],
+        "normalize_std": [
+            0.5,
+            0.5,
+            0.5
+        ]
+    },
+    "augmentation": {
+        "rotation_degrees": 10,
+        "brightness": 0.2,
+        "contrast": 0.2,
+        "saturation": 0.0,
+        "hue": 0.0
+    },
+    "training": {
+        "model_type": "resnet",
+        "batch_size": 64,
+        "learning_rate": 0.001,
+        "epochs": 30,
+        "optimizer": "adam",
+        "weight_decay": 0.0001,
+        "scheduler": {
+            "enabled": true,
+            "type": "step",
+            "step_size": 10,
+            "gamma": 0.1
+        }
+    },
+    "early_stopping": {
+        "enabled": true,
+        "patience": 7,
+        "min_delta": 0.001,
+        "monitor": "val_acc",
+        "mode": "max",
+        "target_accuracy": 98.0
+    },
+    "checkpoint": {
+        "save_best": true,
+        "save_last": true,
+        "resume_from": null
+    },
+    "tensorboard": {
+        "enabled": true,
+        "log_interval": 10,
+        "log_images": true,
+        "log_histograms": false
+    },
+    "model": {
+        "custom_cnn": {
+            "conv_filters": [
+                32,
+                64,
+                128
+            ],
+            "fc_hidden": 512,
+            "dropout": 0.5
+        },
+        "resnet": {
+            "pretrained": true,
+            "freeze_backbone": false
+        }
+    },
+    "classes": {
+        "0": "Limite 20 km/h",
+        "1": "Limite 30 km/h",
+        "2": "Limite 50 km/h",
+        "3": "Limite 60 km/h",
+        "4": "Limite 70 km/h",
+        "5": "Limite 80 km/h",
+        "6": "Fine limite 80",
+        "7": "Limite 100 km/h",
+        "8": "Limite 120 km/h",
+        "9": "Divieto sorpasso",
+        "10": "Divieto sorpasso camion",
+        "11": "Precedenza incrocio",
+        "12": "Strada con priorità",
+        "13": "Dare precedenza",
+        "14": "STOP",
+        "15": "Divieto transito",
+        "16": "Divieto camion",
+        "17": "Divieto accesso",
+        "18": "Pericolo generico",
+        "19": "Curva a sinistra",
+        "20": "Curva a destra",
+        "21": "Doppia curva",
+        "22": "Strada dissestata",
+        "23": "Strada sdrucciolevole",
+        "24": "Restringimento destra",
+        "25": "Lavori in corso",
+        "26": "Semaforo",
+        "27": "Attraversamento pedoni",
+        "28": "Bambini",
+        "29": "Biciclette",
+        "30": "Ghiaccio/Neve",
+        "31": "Animali selvatici",
+        "32": "Fine limiti",
+        "33": "Obbligo destra",
+        "34": "Obbligo sinistra",
+        "35": "Dritto",
+        "36": "Dritto o destra",
+        "37": "Dritto o sinistra",
+        "38": "Passaggio a destra",
+        "39": "Passaggio a sinistra",
+        "40": "Rotatoria",
+        "41": "Divieto sorpasso (fine)",
+        "42": "Divieto camion (fine)"
+    }
+}

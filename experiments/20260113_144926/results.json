@@ -1,0 +1,56 @@
+[
+  {
+    "name": "exp1_epochs2",
+    "description": "Custom CNN - 2 epoche (bs=64, lr=0.001)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp1_epochs2\\custom_20260113_144927 is not a directory"
+  },
+  {
+    "name": "exp2_epochs5",
+    "description": "Custom CNN - 5 epoche (bs=64, lr=0.001)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp2_epochs5\\custom_20260113_144928 is not a directory"
+  },
+  {
+    "name": "exp3_epochs10",
+    "description": "Custom CNN - 10 epoche (bs=64, lr=0.001)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp3_epochs10\\custom_20260113_144929 is not a directory"
+  },
+  {
+    "name": "exp4_bs8",
+    "description": "Custom CNN - batch_size=8 (lr=0.001, ep=5)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp4_bs8\\custom_20260113_144930 is not a directory"
+  },
+  {
+    "name": "exp5_bs16",
+    "description": "Custom CNN - batch_size=16 (lr=0.001, ep=5)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp5_bs16\\custom_20260113_144931 is not a directory"
+  },
+  {
+    "name": "exp6_bs32",
+    "description": "Custom CNN - batch_size=32 (lr=0.001, ep=5)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp6_bs32\\custom_20260113_144932 is not a directory"
+  },
+  {
+    "name": "exp7_lr0001",
+    "description": "Custom CNN - lr=0.0001 (bs=64, ep=5)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp7_lr0001\\custom_20260113_144933 is not a directory"
+  },
+  {
+    "name": "exp8_lr005",
+    "description": "Custom CNN - lr=0.005 (bs=64, ep=5)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp8_lr005\\custom_20260113_144934 is not a directory"
+  },
+  {
+    "name": "exp9_lr01",
+    "description": "Custom CNN - lr=0.01 (bs=64, ep=5)",
+    "status": "failed",
+    "error": "C:\\Users\\marco\\OneDrive\\Desktop\\pillo\\universit\u00e0 pillo\\SECONDO ANNO\\SECONDO SEMESTRE\\laboratorio di ottimizzazione\\PROGETTO\\experiments\\20260113_144926\\runs\\exp9_lr01\\custom_20260113_144934 is not a directory"
+  }
+]

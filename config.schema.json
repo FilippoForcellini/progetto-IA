@@ -1,0 +1,325 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/gtsrb-config.schema.json",
+    "title": "GTSRB Configuration Schema",
+    "description": "Schema di validazione per la configurazione del progetto GTSRB Traffic Sign Classification",
+    "type": "object",
+    "required": ["project", "paths", "data", "augmentation", "training", "early_stopping", "checkpoint", "tensorboard", "model", "classes"],
+    "properties": {
+        "project": {
+            "type": "object",
+            "description": "Informazioni generali sul progetto",
+            "required": ["name", "num_classes"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Nome del progetto"
+                },
+                "num_classes": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Numero di classi da classificare (43 per GTSRB)"
+                }
+            }
+        },
+        "paths": {
+            "type": "object",
+            "description": "Percorsi delle directory del progetto",
+            "required": ["data_root", "models_dir", "results_dir", "logs_dir"],
+            "properties": {
+                "data_root": {
+                    "type": "string",
+                    "description": "Directory radice per i dati del dataset"
+                },
+                "models_dir": {
+                    "type": "string",
+                    "description": "Directory per salvare i modelli addestrati"
+                },
+                "results_dir": {
+                    "type": "string",
+                    "description": "Directory per i risultati e grafici"
+                },
+                "logs_dir": {
+                    "type": "string",
+                    "description": "Directory per i log di TensorBoard"
+                }
+            }
+        },
+        "data": {
+            "type": "object",
+            "description": "Configurazione dei dati di input",
+            "required": ["image_size", "normalize_mean", "normalize_std"],
+            "properties": {
+                "image_size": {
+                    "type": "integer",
+                    "minimum": 16,
+                    "maximum": 512,
+                    "description": "Dimensione delle immagini (quadrate) in pixel"
+                },
+                "normalize_mean": {
+                    "type": "array",
+                    "items": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                    },
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "description": "Media per la normalizzazione [R, G, B]"
+                },
+                "normalize_std": {
+                    "type": "array",
+                    "items": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                    },
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "description": "Deviazione standard per la normalizzazione [R, G, B]"
+                }
+            }
+        },
+        "augmentation": {
+            "type": "object",
+            "description": "Parametri per la data augmentation durante il training",
+            "required": ["rotation_degrees", "brightness", "contrast", "saturation", "hue"],
+            "properties": {
+                "rotation_degrees": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 180,
+                    "description": "Gradi massimi di rotazione casuale"
+                },
+                "brightness": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Variazione di luminosita (0=nessuna)"
+                },
+                "contrast": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Variazione di contrasto (0=nessuna)"
+                },
+                "saturation": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Variazione di saturazione (0=nessuna)"
+                },
+                "hue": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.5,
+                    "description": "Variazione di tonalita (0=nessuna)"
+                }
+            }
+        },
+        "training": {
+            "type": "object",
+            "description": "Parametri per l'addestramento del modello",
+            "required": ["model_type", "batch_size", "learning_rate", "epochs", "optimizer", "weight_decay", "scheduler"],
+            "properties": {
+                "model_type": {
+                    "type": "string",
+                    "enum": ["custom", "resnet"],
+                    "description": "Tipo di modello: 'custom' (CNN personalizzata) o 'resnet' (ResNet18 pretrained)"
+                },
+                "batch_size": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 512,
+                    "description": "Numero di campioni per batch"
+                },
+                "learning_rate": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1,
+                    "description": "Tasso di apprendimento iniziale"
+                },
+                "epochs": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000,
+                    "description": "Numero massimo di epoche di training"
+                },
+                "optimizer": {
+                    "type": "string",
+                    "enum": ["adam", "sgd", "adamw"],
+                    "description": "Algoritmo di ottimizzazione"
+                },
+                "weight_decay": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Coefficiente di regolarizzazione L2"
+                },
+                "scheduler": {
+                    "type": "object",
+                    "description": "Configurazione dello scheduler del learning rate",
+                    "required": ["enabled", "type", "step_size", "gamma"],
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "description": "Se abilitare lo scheduler"
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": ["step", "cosine", "plateau"],
+                            "description": "Tipo di scheduler"
+                        },
+                        "step_size": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "description": "Numero di epoche tra ogni step (per StepLR)"
+                        },
+                        "gamma": {
+                            "type": "number",
+                            "exclusiveMinimum": 0,
+                            "maximum": 1,
+                            "description": "Fattore di moltiplicazione del LR ad ogni step"
+                        }
+                    }
+                }
+            }
+        },
+        "early_stopping": {
+            "type": "object",
+            "description": "Configurazione dell'early stopping",
+            "required": ["enabled", "patience", "min_delta", "monitor", "mode", "target_accuracy"],
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Se abilitare l'early stopping"
+                },
+                "patience": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Numero di epoche senza miglioramento prima dello stop"
+                },
+                "min_delta": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Miglioramento minimo per considerare un'epoca come miglioramento"
+                },
+                "monitor": {
+                    "type": "string",
+                    "enum": ["val_acc", "val_loss"],
+                    "description": "Metrica da monitorare"
+                },
+                "mode": {
+                    "type": "string",
+                    "enum": ["max", "min"],
+                    "description": "'max' per massimizzare (accuracy), 'min' per minimizzare (loss)"
+                },
+                "target_accuracy": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "description": "Accuratezza target per lo stop anticipato (percentuale)"
+                }
+            }
+        },
+        "checkpoint": {
+            "type": "object",
+            "description": "Configurazione del salvataggio checkpoint",
+            "required": ["save_best", "save_last", "resume_from"],
+            "properties": {
+                "save_best": {
+                    "type": "boolean",
+                    "description": "Se salvare il miglior modello"
+                },
+                "save_last": {
+                    "type": "boolean",
+                    "description": "Se salvare l'ultimo checkpoint"
+                },
+                "resume_from": {
+                    "type": ["string", "null"],
+                    "description": "Percorso del checkpoint da cui riprendere (null per non riprendere)"
+                }
+            }
+        },
+        "tensorboard": {
+            "type": "object",
+            "description": "Configurazione di TensorBoard per la visualizzazione",
+            "required": ["enabled", "log_interval", "log_images", "log_histograms"],
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Se abilitare il logging su TensorBoard"
+                },
+                "log_interval": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Intervallo (in batch) tra i log"
+                },
+                "log_images": {
+                    "type": "boolean",
+                    "description": "Se loggare immagini di esempio"
+                },
+                "log_histograms": {
+                    "type": "boolean",
+                    "description": "Se loggare istogrammi dei pesi"
+                }
+            }
+        },
+        "model": {
+            "type": "object",
+            "description": "Configurazione specifica per ogni tipo di modello",
+            "required": ["custom_cnn", "resnet"],
+            "properties": {
+                "custom_cnn": {
+                    "type": "object",
+                    "description": "Parametri per la CNN personalizzata",
+                    "required": ["conv_filters", "fc_hidden", "dropout"],
+                    "properties": {
+                        "conv_filters": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "minimum": 1
+                            },
+                            "minItems": 1,
+                            "description": "Numero di filtri per ogni blocco convoluzionale"
+                        },
+                        "fc_hidden": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "description": "Numero di neuroni nel layer nascosto fully connected"
+                        },
+                        "dropout": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1,
+                            "description": "Tasso di dropout per regolarizzazione"
+                        }
+                    }
+                },
+                "resnet": {
+                    "type": "object",
+                    "description": "Parametri per ResNet18 transfer learning",
+                    "required": ["pretrained", "freeze_backbone"],
+                    "properties": {
+                        "pretrained": {
+                            "type": "boolean",
+                            "description": "Se usare pesi pre-addestrati su ImageNet"
+                        },
+                        "freeze_backbone": {
+                            "type": "boolean",
+                            "description": "Se congelare i layer convoluzionali (solo fine-tuning)"
+                        }
+                    }
+                }
+            }
+        },
+        "classes": {
+            "type": "object",
+            "description": "Mapping indice -> nome della classe",
+            "additionalProperties": {
+                "type": "string"
+            }
+        }
+    }
+}
